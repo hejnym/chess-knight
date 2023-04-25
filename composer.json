@@ -1,0 +1,23 @@
+{
+    "name": "mano/chessknight",
+    "description": "Knight's Shortest Path on an Infinite Chessboard",
+    "autoload": {
+        "psr-4": {
+            "Mano\\ChessKnight\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Milos Hejny",
+            "email": "miloshejny@email.cz"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "^10"
+    },
+    "config": {
+        "platform": {
+            "php": "8.2"
+        }
+    }
+}
