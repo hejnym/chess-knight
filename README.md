@@ -1,10 +1,19 @@
-# Knight's Shortest Path on an Infinite Chessboard
+# Knight's Shortest Path on Chessboard
 
-A logic game as a programming exercise. Find the shortest path of a chess knight on the chessboard.
+A logic game as a programming exercise. Find the shortest path of a chess knight on chessboard.
 
-There are multiple strategies to this problem - only one is implemented so far. 
+There are multiple strategies to this problem - only one is implemented so far. A tree of all possible moves is built gradually and the result is evaluated at each depth level.
+
+Other suggested strategies to improve performance:
+- divide the board into smaller parts first
+- only try offsets that aim to the final square initially
+- try several depth level at once (can be also slower - can be nicely combined with previous point)
 
 ## Installation
+
+Clone the repository. 
+
+If you want to run tests, run Composer. 
 
 ```bash
 php composer install
