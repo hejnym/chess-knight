@@ -13,6 +13,9 @@ use Mano\ChessKnight\Common\Square;
  */
 class Tree
 {
+    /**
+     * @var \SplQueue<Move>
+     */
     private \SplQueue $queue;
 
     public function __construct(Square $square)

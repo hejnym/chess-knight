@@ -8,7 +8,7 @@ use Mano\ChessKnight\Utils\ChessNotationConvertor;
 
 class Board
 {
-    /** @var Square[] */
+    /** @var Square[][] */
     public array $squares;
     private int $squaresInRow;
 

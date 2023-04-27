@@ -9,6 +9,7 @@ use Mano\ChessKnight\Piece\Knight;
 use Mano\ChessKnight\ResultInterpreter\DebugInterpreter;
 use Mano\ChessKnight\Strategy\TreeStrategy;
 use PHPUnit\Framework\TestCase;
+use Psr\Log\InvalidArgumentException;
 
 class IntegrationTest extends TestCase
 {
@@ -33,12 +34,9 @@ class IntegrationTest extends TestCase
      */
     public function testOnlyOneMove(string $currentPosition, string $targetPosition): void
     {
-        $current = $this->board->getSquareByChessNotation($currentPosition);
-        $target = $this->board->getSquareByChessNotation($targetPosition);
-
         $this->assertEquals(
             [],
-            $this->shortestPathFinder->findShortestPath($current, $target)
+            $this->getSquareByStandardNotation($currentPosition, $targetPosition)
         );
     }
 
@@ -49,12 +47,9 @@ class IntegrationTest extends TestCase
      */
     public function testSeveralMoves(string $currentPosition, string $targetPosition, array $visitedSquares): void
     {
-        $current = $this->board->getSquareByChessNotation($currentPosition);
-        $target = $this->board->getSquareByChessNotation($targetPosition);
-
         $this->assertEquals(
             $visitedSquares,
-            $this->shortestPathFinder->findShortestPath($current, $target)
+            $this->getSquareByStandardNotation($currentPosition, $targetPosition)
         );
     }
 
@@ -62,10 +57,7 @@ class IntegrationTest extends TestCase
     {
         $this->board = new Board(3);
 
-        $square1 = $this->board->getSquare(1, 1);
-        $square2 = $this->board->getSquare(2, 2);
-
-        $this->assertNull($this->shortestPathFinder->findShortestPath($square1, $square2));
+        $this->assertNull($this->getSquareByStandardNotation('A1', 'B2'));
     }
 
     /**
@@ -100,5 +92,23 @@ class IntegrationTest extends TestCase
             ['H7', 'A7', ['C6', 'E5', 'F7', 'G5']],
             ['A8', 'H1', ['F2', 'E4', 'D6', 'C8', 'B6']],
         ];
+    }
+
+    /**
+     * @return array<string>|null
+     */
+    private function getSquareByStandardNotation(string $currentPosition, string $targetPosition): ?array
+    {
+        $current = $this->board->getSquareByChessNotation($currentPosition);
+        $target = $this->board->getSquareByChessNotation($targetPosition);
+
+        if (!$current || !$target) {
+            throw new InvalidArgumentException();
+        }
+
+        return $this->shortestPathFinder->findShortestPath(
+            $current,
+            $target
+        );
     }
 }
