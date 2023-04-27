@@ -13,7 +13,7 @@ class DebugInterpreter implements ResultInterpreterInterface
      */
     public function interpret(?Move $lastMove): ?array
     {
-        if(!$lastMove) {
+        if (!$lastMove) {
             return null;
         }
 
@@ -21,12 +21,13 @@ class DebugInterpreter implements ResultInterpreterInterface
 
         $processedMove = $lastMove;
         while ($processedMove) {
-            if($processedMove->getPreviousMove()) {
+            if ($processedMove->getPreviousMove()) {
                 $visitedNodes[] = $processedMove->getCurrentSquare()->getName();
             }
 
-            $processedMove  = $processedMove->getPreviousMove();
+            $processedMove = $processedMove->getPreviousMove();
         }
+
         return $visitedNodes;
     }
 }

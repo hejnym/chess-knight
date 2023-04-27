@@ -22,7 +22,6 @@ class TreeStrategy implements StrategyInterface
         $tree = new Tree($currentSquare);
 
         while ($currentMove = $tree->moveToNextPossibleUnvisitedSquare()) {
-
             $currentMove->getCurrentSquare()->visit();
 
             foreach ($this->shortestPathFinder->getPiece()->getPossibleOffsets() as $offset) {
@@ -31,7 +30,7 @@ class TreeStrategy implements StrategyInterface
                     $currentMove->getCurrentSquare()->getColumn() + $offset->cols,
                 );
 
-                if(!$possibleSquare || $possibleSquare->hasBeenVisited()) {
+                if (!$possibleSquare || $possibleSquare->hasBeenVisited()) {
                     continue;
                 }
 

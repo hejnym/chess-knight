@@ -30,9 +30,6 @@ class Move
         return $this->dateTime;
     }
 
-    /**
-     * @return Move|null
-     */
     public function getPreviousMove(): ?Move
     {
         return $this->previousMove;

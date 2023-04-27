@@ -36,7 +36,7 @@ class ShortestPathFinder
     {
         // TODO: check if squares exist in the board
 
-        if(!$this->strategy) {
+        if (!$this->strategy) {
             throw new \RuntimeException();
         }
 

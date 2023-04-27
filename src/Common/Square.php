@@ -39,7 +39,7 @@ class Square
 
     public function isColored(int $row, int $column): bool
     {
-        if($row & 1 && $column & 1) {
+        if ($row & 1 && $column & 1) {
             return true;
         }
 

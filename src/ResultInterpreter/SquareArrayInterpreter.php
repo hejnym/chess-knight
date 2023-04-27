@@ -18,12 +18,13 @@ class SquareArrayInterpreter
 
         $processedMove = $currentMove;
         while ($processedMove) {
-            if($processedMove->getPreviousMove()) {
+            if ($processedMove->getPreviousMove()) {
                 $visitedNodes[] = $processedMove->getCurrentSquare();
             }
 
-            $processedMove  = $processedMove->getPreviousMove();
+            $processedMove = $processedMove->getPreviousMove();
         }
+
         return $visitedNodes;
     }
 }

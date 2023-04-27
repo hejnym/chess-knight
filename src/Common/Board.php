@@ -8,7 +8,7 @@ use Mano\ChessKnight\Utils\ChessNotationConvertor;
 
 class Board
 {
-    /** @var Square[]  */
+    /** @var Square[] */
     public array $squares;
     private int $squaresInRow;
 
@@ -20,7 +20,7 @@ class Board
 
     public function getSquare(int $row, int $col): ?Square
     {
-        if($row <= 0 || $row > $this->squaresInRow || $col <= 0 || $col > $this->squaresInRow) {
+        if ($row <= 0 || $row > $this->squaresInRow || $col <= 0 || $col > $this->squaresInRow) {
             return null;
         }
 
@@ -39,9 +39,9 @@ class Board
 
     private function fillBoardWithSquares(int $n): void
     {
-        for($row = 1; $row <= $n; $row++) {
+        for ($row = 1; $row <= $n; ++$row) {
             $this->squares[$row] = [];
-            for($column = 1; $column <= $n; $column++) {
+            for ($column = 1; $column <= $n; ++$column) {
                 $this->squares[$row][$column] = new Square($row, $column);
             }
         }

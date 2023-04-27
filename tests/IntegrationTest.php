@@ -15,7 +15,6 @@ class IntegrationTest extends TestCase
     private ShortestPathFinder $shortestPathFinder;
     private Board $board;
 
-
     public function setUp(): void
     {
         $this->board = new Board(8);
@@ -45,6 +44,7 @@ class IntegrationTest extends TestCase
 
     /**
      * @param string[] $visitedSquares
+     *
      * @dataProvider provideSeveralMovesTargetPositions
      */
     public function testSeveralMoves(string $currentPosition, string $targetPosition, array $visitedSquares): void
@@ -94,11 +94,11 @@ class IntegrationTest extends TestCase
         return [
             ['D4', 'A5', ['C6']],
             ['D4', 'A3', ['C2']],
-            ['D4', 'B2', ['D3','F4','E6']],
-            ['D4', 'B2', ['D3','F4','E6']],
-            ['D4', 'H8', ['G6','F8','E6']],
-            ['H7', 'A7', ['C6','E5','F7','G5']],
-            ['A8', 'H1', ['F2','E4','D6','C8','B6']],
+            ['D4', 'B2', ['D3', 'F4', 'E6']],
+            ['D4', 'B2', ['D3', 'F4', 'E6']],
+            ['D4', 'H8', ['G6', 'F8', 'E6']],
+            ['H7', 'A7', ['C6', 'E5', 'F7', 'G5']],
+            ['A8', 'H1', ['F2', 'E4', 'D6', 'C8', 'B6']],
         ];
     }
 }

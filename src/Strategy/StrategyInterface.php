@@ -14,7 +14,8 @@ interface StrategyInterface
 {
     /**
      * @see Move Complete history of moves can be redone from the last move.
-     * @return Move|null Nothing returned when no path found.
+     *
+     * @return Move|null nothing returned when no path found
      */
     public function getLastMove(Square $currentSquare, Square $targetSquare): ?Move;
 }

@@ -23,7 +23,7 @@ class Tree
 
     public function moveToNextPossibleUnvisitedSquare(): ?Move
     {
-        if(!$this->canGrow()) {
+        if (!$this->canGrow()) {
             return null;
         }
 
@@ -31,7 +31,7 @@ class Tree
         $move = $this->queue->dequeue();
 
         // @phpstan-ignore-next-line Method canGrow is called upon recreated queue
-        while($move->getCurrentSquare()->hasBeenVisited() && $this->canGrow()) {
+        while ($move->getCurrentSquare()->hasBeenVisited() && $this->canGrow()) {
             $move = $this->queue->dequeue();
         }
 
