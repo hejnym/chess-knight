@@ -6,7 +6,7 @@ namespace Mano\ChessKnight;
 
 use Mano\ChessKnight\Common\Board;
 use Mano\ChessKnight\Piece\Knight;
-use Mano\ChessKnight\ResultInterpreter\DebugInterpreterInterface;
+use Mano\ChessKnight\ResultInterpreter\DebugInterpreter;
 use Mano\ChessKnight\Strategy\TreeStrategy;
 use PHPUnit\Framework\TestCase;
 
@@ -23,7 +23,7 @@ class IntegrationTest extends TestCase
         $this->shortestPathFinder = new ShortestPathFinder(
             new Knight(),
             $this->board,
-            new DebugInterpreterInterface(),
+            new DebugInterpreter(),
         );
 
         $this->shortestPathFinder->setStrategy(new TreeStrategy($this->shortestPathFinder));

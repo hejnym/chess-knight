@@ -2,7 +2,8 @@
 
 A logic game as a programming exercise. Find the shortest path of a chess knight on chessboard.
 
-There are multiple strategies to this problem - only one is implemented so far. A tree of all possible moves is built gradually and the result is evaluated at each depth level.
+There are multiple strategies to this problem - only one is implemented so far. A tree of all possible moves is built
+gradually and the result is evaluated at each depth level.
 
 Other suggested strategies to improve performance:
 - divide the board into smaller parts first
@@ -31,23 +32,23 @@ php bin/vendor/phpunit tests
 ## Usage
 
 ```php
-        // create a board o size 8x8
-        $board = new Board(8);
-        
-        $finder = new ShortestPathFinder(
-            new Knight(), // set a piece that is used
-            $board,
-            new SquareArrayInterpreter(), // set how you want to get the result as
-        );
-        
-        // the strategy to find the path
-        $finder->setStrategy(new TreeStrategy());
-        
-        // result will depend on the interpreter, in this case it will return all the visited squares
-        $result = $finder->find(
-            $board->getSquareByChessNotation('A1'),
-            $board->getSquareByChessNotation('B3')
-        );
+// create a board o size 8x8
+$board = new Board(8);
+
+$finder = new ShortestPathFinder(
+    new Knight(), // set a piece that is used
+    $board,
+    new SquareArrayInterpreter(), // set how you want to get the result as
+);
+
+// the strategy to find the path
+$finder->setStrategy(new TreeStrategy());
+
+// result will depend on the interpreter, in this case it will return all the visited squares
+$result = $finder->findShortestPath(
+    $board->getSquareByChessNotation('A1'),
+    $board->getSquareByChessNotation('B3')
+);
 
 ```
 

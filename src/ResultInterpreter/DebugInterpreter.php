@@ -6,7 +6,7 @@ namespace Mano\ChessKnight\ResultInterpreter;
 
 use Mano\ChessKnight\Common\Move;
 
-class DebugInterpreterInterface implements ResultInterpreterInterface
+class DebugInterpreter implements ResultInterpreterInterface
 {
     /**
      * @return string[]|null List of visited squares
