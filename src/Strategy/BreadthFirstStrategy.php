@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Mano\ChessKnight\Strategy;
 
-use Mano\ChessKnight\Common\Move;
+use Mano\ChessKnight\Collection\MoveCollection;
 use Mano\ChessKnight\Common\Square;
 use Mano\ChessKnight\ShortestPathFinder;
 
-class TreeStrategy implements StrategyInterface
+class BreadthFirstStrategy implements StrategyInterface
 {
     private ShortestPathFinder $shortestPathFinder;
 
@@ -17,7 +17,7 @@ class TreeStrategy implements StrategyInterface
         $this->shortestPathFinder = $shortestPathFinder;
     }
 
-    public function getLastMove(Square $currentSquare, Square $targetSquare): ?Move
+    public function getCollectionOfMoves(Square $currentSquare, Square $targetSquare): ?MoveCollection
     {
         $tree = new Tree($currentSquare);
 
@@ -35,7 +35,7 @@ class TreeStrategy implements StrategyInterface
                 }
 
                 if ($this->isFinalSquare($possibleSquare, $targetSquare)) {
-                    return $currentMove;
+                    return new MoveCollection($currentMove);
                 }
 
                 $tree->grow($possibleSquare, $currentMove);

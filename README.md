@@ -2,7 +2,7 @@
 
 A logic game as a programming exercise. Find the shortest path of a chess knight on chessboard.
 
-There are multiple strategies to this problem - only one is implemented so far. A tree of all possible moves is built
+There are multiple strategies to this problem - only one is implemented so far(Breadth-first search). A tree of all possible moves is built
 gradually and the result is evaluated at each depth level.
 
 Other suggested strategies to improve performance:
@@ -25,7 +25,7 @@ php composer install
 Not covered all so far - only integration tested thoroughly.
 
 ```bash
-php bin/vendor/phpunit tests
+php vendor/bin/phpunit tests
 ```
 
 
@@ -52,6 +52,5 @@ $result = $finder->findShortestPath(
 
 ```
 
-## Contributing
-
-Pull requests are welcome.  
+## TODO
+- Debug interpreter shows time and memory consumption.

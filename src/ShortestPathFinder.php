@@ -29,10 +29,7 @@ class ShortestPathFinder
         $this->strategy = $strategy;
     }
 
-    /**
-     * @return mixed
-     */
-    public function findShortestPath(Square $currentSquare, Square $targetSquare)
+    public function findShortestPath(Square $currentSquare, Square $targetSquare): mixed
     {
         // TODO: check if squares exist in the board
 
@@ -41,7 +38,7 @@ class ShortestPathFinder
         }
 
         return $this->interpreter->interpret(
-            $this->strategy->getLastMove($currentSquare, $targetSquare)
+            $this->strategy->getCollectionOfMoves($currentSquare, $targetSquare)
         );
     }
 

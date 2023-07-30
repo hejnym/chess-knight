@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Mano\ChessKnight\Strategy;
 
-use Mano\ChessKnight\Common\Move;
+use Mano\ChessKnight\Collection\MoveCollection;
 use Mano\ChessKnight\Common\Square;
 
 /**
@@ -13,9 +13,7 @@ use Mano\ChessKnight\Common\Square;
 interface StrategyInterface
 {
     /**
-     * @see Move Complete history of moves can be redone from the last move.
-     *
-     * @return Move|null nothing returned when no path found
+     * @return MoveCollection|null Null returned when no path found
      */
-    public function getLastMove(Square $currentSquare, Square $targetSquare): ?Move;
+    public function getCollectionOfMoves(Square $currentSquare, Square $targetSquare): ?MoveCollection;
 }

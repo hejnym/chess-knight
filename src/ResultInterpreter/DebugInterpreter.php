@@ -4,28 +4,23 @@ declare(strict_types=1);
 
 namespace Mano\ChessKnight\ResultInterpreter;
 
-use Mano\ChessKnight\Common\Move;
+use Mano\ChessKnight\Collection\MoveCollection;
 
 class DebugInterpreter implements ResultInterpreterInterface
 {
     /**
      * @return string[]|null List of visited squares
      */
-    public function interpret(?Move $lastMove): ?array
+    public function interpret(?MoveCollection $moveCollection): ?array
     {
-        if (!$lastMove) {
+        if (null === $moveCollection) {
             return null;
         }
 
         $visitedNodes = [];
 
-        $processedMove = $lastMove;
-        while ($processedMove) {
-            if ($processedMove->getPreviousMove()) {
-                $visitedNodes[] = $processedMove->getCurrentSquare()->getName();
-            }
-
-            $processedMove = $processedMove->getPreviousMove();
+        foreach ($moveCollection as $move) {
+            $visitedNodes[] = $move->getCurrentSquare()->getName();
         }
 
         return $visitedNodes;

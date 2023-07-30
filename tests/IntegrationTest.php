@@ -7,7 +7,7 @@ namespace Mano\ChessKnight;
 use Mano\ChessKnight\Common\Board;
 use Mano\ChessKnight\Piece\Knight;
 use Mano\ChessKnight\ResultInterpreter\DebugInterpreter;
-use Mano\ChessKnight\Strategy\TreeStrategy;
+use Mano\ChessKnight\Strategy\BreadthFirstStrategy;
 use PHPUnit\Framework\TestCase;
 use Psr\Log\InvalidArgumentException;
 
@@ -26,7 +26,7 @@ class IntegrationTest extends TestCase
             new DebugInterpreter(),
         );
 
-        $this->shortestPathFinder->setStrategy(new TreeStrategy($this->shortestPathFinder));
+        $this->shortestPathFinder->setStrategy(new BreadthFirstStrategy($this->shortestPathFinder));
     }
 
     /**
