@@ -7,17 +7,15 @@ namespace Mano\ChessKnight\Common;
 /**
  * Represents a part of a chain that consists of all moves. Complete history can be recreated from the last move.
  */
-class Move
+readonly class Move
 {
-    private Square $currentSquare;
-    private ?Move $previousMove;
     private \DateTimeImmutable $dateTime;
 
-    public function __construct(Square $currentSquare, ?Move $previousMove)
-    {
+    public function __construct(
+        private Square $currentSquare,
+        private ?Move $previousMove
+    ) {
         $this->dateTime = new \DateTimeImmutable();
-        $this->previousMove = $previousMove;
-        $this->currentSquare = $currentSquare;
     }
 
     public function getCurrentSquare(): Square

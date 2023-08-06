@@ -6,7 +6,7 @@ namespace Mano\ChessKnight\Piece;
 
 use Mano\ChessKnight\Common\Offset;
 
-class Knight implements PieceInterface
+final readonly class Knight implements PieceInterface
 {
     /**
      * @return Offset[]

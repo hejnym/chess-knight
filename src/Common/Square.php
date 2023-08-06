@@ -8,14 +8,12 @@ use Mano\ChessKnight\Utils\ChessNotationConvertor;
 
 class Square
 {
-    private int $row;
-    private int $column;
     private bool $visited = false;
 
-    public function __construct(int $row, int $column)
-    {
-        $this->row = $row;
-        $this->column = $column;
+    public function __construct(
+        private readonly int $row,
+        private readonly int $column
+    ) {
     }
 
     public function getName(): string

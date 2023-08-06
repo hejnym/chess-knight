@@ -10,11 +10,10 @@ class Board
 {
     /** @var Square[][] */
     public array $squares;
-    private int $squaresInRow;
 
-    public function __construct(int $squaresInRow = 8)
-    {
-        $this->squaresInRow = $squaresInRow;
+    public function __construct(
+        private readonly int $squaresInRow = 8
+    ) {
         $this->fillBoardWithSquares($squaresInRow);
     }
 

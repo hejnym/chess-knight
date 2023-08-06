@@ -12,21 +12,12 @@ use Mano\ChessKnight\Strategy\StrategyInterface;
 
 class ShortestPathFinder
 {
-    private PieceInterface $piece;
-    private Board $board;
-    private ResultInterpreterInterface $interpreter;
-    private ?StrategyInterface $strategy;
-
     public function __construct(
-        PieceInterface $piece,
-        Board $board,
-        ResultInterpreterInterface $interpreter,
-        ?StrategyInterface $strategy = null
+        private readonly PieceInterface $piece,
+        private readonly Board $board,
+        private readonly ResultInterpreterInterface $interpreter,
+        private ?StrategyInterface $strategy = null
     ) {
-        $this->piece = $piece;
-        $this->board = $board;
-        $this->interpreter = $interpreter;
-        $this->strategy = $strategy;
     }
 
     public function findShortestPath(Square $currentSquare, Square $targetSquare): mixed

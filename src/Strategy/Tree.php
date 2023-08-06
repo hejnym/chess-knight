@@ -11,7 +11,7 @@ use Mano\ChessKnight\Common\Square;
  * Represents a tree that is being built during the search. A queue is used in order to search at the same depth first
  * before moving to next level.
  */
-class Tree
+readonly class Tree
 {
     /**
      * @var \SplQueue<Move>

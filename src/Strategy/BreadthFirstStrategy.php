@@ -8,13 +8,11 @@ use Mano\ChessKnight\Collection\MoveCollection;
 use Mano\ChessKnight\Common\Square;
 use Mano\ChessKnight\ShortestPathFinder;
 
-class BreadthFirstStrategy implements StrategyInterface
+final readonly class BreadthFirstStrategy implements StrategyInterface
 {
-    private ShortestPathFinder $shortestPathFinder;
-
-    public function __construct(ShortestPathFinder $shortestPathFinder)
-    {
-        $this->shortestPathFinder = $shortestPathFinder;
+    public function __construct(
+        private ShortestPathFinder $shortestPathFinder
+    ) {
     }
 
     public function getCollectionOfMoves(Square $currentSquare, Square $targetSquare): ?MoveCollection
